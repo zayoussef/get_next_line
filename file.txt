@@ -1,0 +1,20 @@
+Building the thing     jjjj
+youssef      1337 labas
+For this function, this won't be a step by step building because describing each step that you need to take to build the function is pretty hard.
+I'll give you hints on what you have to do to achieve it.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

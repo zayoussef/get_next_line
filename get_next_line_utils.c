@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 09:43:54 by yozainan          #+#    #+#             */
-/*   Updated: 2023/11/28 09:43:55 by yozainan         ###   ########.fr       */
+/*   Updated: 2023/11/30 19:21:30 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	if (!s1 || !s2)
 		return (NULL);
 	tlen = ft_strlen(s1) + ft_strlen(s2);
-	str = malloc(tlen * sizeof(char) + 1);
+	str = malloc(tlen * (sizeof(char) + 1));
 	if (str == NULL)
 		return (NULL);
 	i = -1;
