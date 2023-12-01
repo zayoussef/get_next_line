@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 09:44:00 by yozainan          #+#    #+#             */
-/*   Updated: 2023/11/30 19:26:30 by yozainan         ###   ########.fr       */
+/*   Updated: 2023/12/01 18:15:16 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@
 #  define BUFFER_SIZE 42
 # endif
 
-# include <unistd.h>
-# include <stdlib.h>
 # include <fcntl.h>
-#include <stdio.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <limits.h>
 
 size_t	ft_strlen(char *str);
 char	*ft_strchr(char *s, int c);

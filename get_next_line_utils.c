@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 09:43:54 by yozainan          #+#    #+#             */
-/*   Updated: 2023/11/30 19:21:30 by yozainan         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:57:57 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	ft_strlen(char *str)
 }
 
 char	*ft_strchr(char *s, int c)
-{	
+{
 	if (!s)
 		return (NULL);
 	while (*s != '\0')
@@ -41,10 +41,10 @@ char	*ft_strchr(char *s, int c)
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	char			*str;
-	size_t			tlen;
-	size_t			i;
-	size_t			j;
+	char	*str;
+	size_t	tlen;
+	size_t	i;
+	size_t	j;
 
 	if (!s1)
 	{

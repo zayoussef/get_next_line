@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 09:43:57 by yozainan          #+#    #+#             */
-/*   Updated: 2023/11/30 19:26:42 by yozainan         ###   ########.fr       */
+/*   Updated: 2023/12/01 17:34:46 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*get_new_line(char *tmp)
 {
-	int	i;
+	int		i;
 	char	*str;
 
 	i = 0;
@@ -40,10 +40,10 @@ char	*get_new_line(char *tmp)
 	return (str);
 }
 
-char	*ft_handle(char	*backup)
+char	*ft_handle(char *backup)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	char	*str;
 
 	i = 0;
@@ -54,9 +54,9 @@ char	*ft_handle(char	*backup)
 		free(backup);
 		return (NULL);
 	}
-	str = malloc(sizeof(char) * (ft_strlen(backup) - i + 1));
+	str = malloc(sizeof(char) * ((ft_strlen(backup) - i) + 1));
 	if (!str)
-		return(NULL);
+		return (NULL);
 	i++;
 	j = 0;
 	while (backup[i])
@@ -69,7 +69,8 @@ char	*ft_handle(char	*backup)
 char	*read_file(int fd, char *tmp)
 {
 	char	*buffer;
-	int	rbyts;
+	int		rbyts;
+
 	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buffer)
 		return (NULL);
@@ -80,7 +81,8 @@ char	*read_file(int fd, char *tmp)
 		if (rbyts == -1)
 		{
 			free(buffer);
-			return (tmp);
+			free(tmp);
+			return (NULL);
 		}
 		buffer[rbyts] = '\0';
 		tmp = ft_strjoin(tmp, buffer);
@@ -89,9 +91,9 @@ char	*read_file(int fd, char *tmp)
 	return (tmp);
 }
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
-	char	*buff;
+	char		*buff;
 	static char	*tmp;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
@@ -104,19 +106,20 @@ char *get_next_line(int fd)
 	return (buff);
 }
 
+/*
 int main ()
 {
-    int fd;
-    char *line;
-    int i = 0;
-    
-    fd = open("file.txt", O_RDONLY);
+	int fd;
+	char *line;
+	int i = 0;
+
+	fd = open("file.txt", O_RDONLY);
 
 	line = get_next_line(fd);
 	// printf("++++++++ %s", line);
-    while ((line = get_next_line(fd)) && i < 4)
-    {
-        printf("%s", line);
-        i++;
-    }  
-}
+	while ((line = get_next_line(fd)) && i < 4)
+	{
+		printf("%s", line);
+		i++;
+	}
+}*/
