@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 09:43:45 by yozainan          #+#    #+#             */
-/*   Updated: 2023/12/01 21:24:46 by yozainan         ###   ########.fr       */
+/*   Updated: 2023/12/02 14:58:56 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ char	*ft_handle(char *backup)
 	return (str);
 }
 
-char	*ft_get_line(int fd, char *handle)
+char	*read_file(int fd, char *tmp)
 {
 	char	*buffer;
 	int		rbyts;
@@ -77,20 +77,20 @@ char	*ft_get_line(int fd, char *handle)
 	if (!buffer)
 		return (NULL);
 	rbyts = 1;
-	while (!ft_strchr(handle, '\n') && rbyts != 0)
+	while (!ft_strchr(tmp, '\n') && rbyts != 0)
 	{
 		rbyts = read(fd, buffer, BUFFER_SIZE);
 		if (rbyts == -1)
 		{
 			free(buffer);
-			free(handle);
+			free(tmp);
 			return (NULL);
 		}
 		buffer[rbyts] = '\0';
-		handle = ft_strjoin(handle, buffer);
+		tmp = ft_strjoin(tmp, buffer);
 	}
 	free(buffer);
-	return (handle);
+	return (tmp);
 }
 
 char	*get_next_line(int fd)
@@ -100,7 +100,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd > OPEN_MAX)
 		return (NULL);
-	handle[fd] = ft_get_line(fd, handle[fd]);
+	handle[fd] = read_file(fd, handle[fd]);
 	if (!handle[fd])
 		return (NULL);
 	buff = get_new_line(handle[fd]);
