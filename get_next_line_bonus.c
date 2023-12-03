@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 09:43:45 by yozainan          #+#    #+#             */
-/*   Updated: 2023/12/02 14:58:56 by yozainan         ###   ########.fr       */
+/*   Updated: 2023/12/03 10:38:10 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*get_new_line(char *tmp)
 		return (NULL);
 	while (tmp[i] && tmp[i] != '\n')
 		i++;
-	str = malloc(sizeof(char) * (i + 2));
+	str = malloc(sizeof(char) * i + 2);
 	if (!str)
 		return (NULL);
 	i = 0;
@@ -43,7 +43,7 @@ char	*get_new_line(char *tmp)
 char	*ft_handle(char *backup)
 {
 	int		i;
-	int		k;
+	int		j;
 	char	*str;
 
 	i = 0;
@@ -54,16 +54,14 @@ char	*ft_handle(char *backup)
 		free(backup);
 		return (NULL);
 	}
-	str = malloc(sizeof(char) * (ft_strlen(backup) - i + 1));
+	str = malloc(sizeof(char) * ((ft_strlen(backup) - i) + 1));
 	if (!str)
 		return (NULL);
 	i++;
-	k = 0;
+	j = 0;
 	while (backup[i])
-	{
-		str[k++] = backup[i++];
-	}
-	str[k] = '\0';
+		str[j++] = backup[i++];
+	str[j] = '\0';
 	free(backup);
 	return (str);
 }
@@ -73,7 +71,7 @@ char	*read_file(int fd, char *tmp)
 	char	*buffer;
 	int		rbyts;
 
-	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	buffer = malloc(BUFFER_SIZE + 1 * sizeof(char));
 	if (!buffer)
 		return (NULL);
 	rbyts = 1;

@@ -6,7 +6,7 @@
 /*   By: yozainan <yozainan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 09:43:57 by yozainan          #+#    #+#             */
-/*   Updated: 2023/12/01 20:15:24 by yozainan         ###   ########.fr       */
+/*   Updated: 2023/12/03 10:27:05 by yozainan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char	*read_file(int fd, char *tmp)
 	char	*buffer;
 	int		rbyts;
 
-	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	buffer = malloc(BUFFER_SIZE + 1 * sizeof(char));
 	if (!buffer)
 		return (NULL);
 	rbyts = 1;
@@ -105,21 +105,3 @@ char	*get_next_line(int fd)
 	tmp = ft_handle(tmp);
 	return (buff);
 }
-
-/*
-int main ()
-{
-	int fd;
-	char *line;
-	int i = 0;
-
-	fd = open("file.txt", O_RDONLY);
-
-	line = get_next_line(fd);
-	// printf("++++++++ %s", line);
-	while ((line = get_next_line(fd)) && i < 4)
-	{
-		printf("%s", line);
-		i++;
-	}
-}*/
